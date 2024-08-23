@@ -18,7 +18,6 @@ f_conf() {
 
 i_bun() {
     curl -fsSL https://bun.sh/install | bash
-    f_conf
     source ~/.config/fish/config.fish
 
     cd --
@@ -32,8 +31,10 @@ if [ "$1" == "init" ]; then
     f_conf
     i_bun
 elif [ "$1" == "test" ]; then
+    cd ~/bun
     bun-debug test
 elif [ "$1" == "build" ]; then
+    cd ~/bun
     bun run build
 else
     echo "Invalid argument"
